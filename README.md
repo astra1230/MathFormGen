@@ -105,3 +105,7 @@ th src/train.lua -phase test -gpu_id 1 -load_model -model_dir model/1w_o -visual
 -max_num_tokens 500 -max_image_width 800 -max_image_height 800 \
 -batch_size 10 -beam_size 5 
 ```
+
+Acknowlegement
+Our implementation is based on HarvardNLP NMT implementation im2markup.
+
