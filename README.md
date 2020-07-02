@@ -106,6 +106,6 @@ th src/train.lua -phase test -gpu_id 1 -load_model -model_dir model/1w_o -visual
 -batch_size 10 -beam_size 5 
 ```
 
-#Acknowlegement
+# Acknowlegement
 Our implementation is based on HarvardNLP NMT implementation im2markup.
 
