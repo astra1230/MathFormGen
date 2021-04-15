@@ -11,3 +11,15 @@ Although all users are encouraged to follow the quality assurance policies, many
 
 ## EMPIRICAL STUDY 
 We downloaded the latest data dump of Mathematics Stack Exchange which contains 2,886,174 posts (including 1,216,368 questions and 1,669,806 answers) and all post edits since its launch onJuly 20, 2010 to March 1, 2020. Based on this large dataset, we carried out an empirical study of post edits in Mathematics Stack Exchange to understand the characteristics of post editing inMathematics Stack Exchange and to motivate the required tool support.
+
+##  RECOMMENDING LATEX EDITS BY DEEP NEURAL NETWORK
+The three types of post edits related to math formula in our empirical study highlight the community efforts for ensuring the post quality in Mathematics Stack Exchange. Unfortunately, these effort sand revisions are implicit knowledge in millions of post edits. Considering the diversity of post editing types and contexts, it would require significant human effort to build a complete set of rules to deal with all different situations. Therefore, we developed a deep-learning based approach which can automatically improve the post editing patterns from historical post edits, and recommend edits to the new posts based on the learned editing knowledge.
+
+The workflow of our approach is shown in Fig 1. Given three types of math-specific edit, we separate them into two tasks i.e., textual LaTeX edit (formula latexification,LaTeX revision) and visual LaTeXedit (screenshot transcription). Our approach first collected a large corpus of original-edited sentence pairs of modifying math formulas for subsequent textual LaTeX edit and synthesized a large corpus of image-formula pairs for model training for subsequent visual LaTeX edit. For textual LaTeX edits, our approach trained a transformer based model on a large parallel corpus of original-edited sentence pairs. For visual LaTeX edits, our approach adopted an encoder-decoder model for converting the formula screenshot to LaTeX representation based on synthesized image-formula pairs (Section 4.4). 
+
+
+<!-- <div style="color:#0000FF" align="center"> -->
+<p align="center">
+<img src="figures/workflow.png" width="70%"/> 
+</p><p align="center">Fig. 1. Workflow of our approach<p align="center">
+<!-- </div> -->
