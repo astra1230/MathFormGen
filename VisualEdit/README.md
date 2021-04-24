@@ -3,7 +3,11 @@
 Our tool applies an encoder-decoder structure for screenshot transcription, inwhich the encoder uses DenseNet, and the decoder uses LSTM with attention mechanism. Theoverall structure is shown in following figure.To get the feature maps of the input images, DenseNet is firstly used in the encoder to extract feature map 𝑉. Unlike traditional Convolutional Neural Network (CNN), DenseNet connects eachlayer to every subsequent layer. The network structure of DenseNet we used is shown in Fig. The output features of DenseNet contain sequential order information, thus we use another RNN encoder to re-encode each row of DenseNet’s output feature map. As shown in Fig, after running row encoder across each row of the 𝑉, the new feature map 𝑇 is created.
 
 Based on the feature map 𝑇, we use LSTM as decoder to generate a sequence of predicted LaTeXtokens. The context vector𝑐𝑡considers the whole feature map 𝑇 with which to capture contextinformation. Most parts of the feature grid may be irrelevant to the current predicted LaTeX token,thus the model should know which part of the feature map is important. In other words, the modelshould pay attention to the important parts.  We use an attention mechanism to achieve this goal.
-
+<!-- <div style="color:#0000FF" align="center"> -->
+<p align="center">
+<img src="figures/stru.png" width="70%"/> 
+</p><p align="center">Fig. Structure of our visual edit model<p align="center">
+<!-- </div> -->
 The following lua libraries are required for the main model.
 
 * tds
